@@ -10,6 +10,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
