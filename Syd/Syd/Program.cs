@@ -12,7 +12,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-
+            DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"C:\Users\Omer\Downloads");
         }
         static void DownloadVideo(string link, string dir)
         {
@@ -21,7 +21,6 @@ namespace Syd
             string file = dir + @"\" + video.FullName;
             File.WriteAllBytes(file, video.GetBytes());
             Path.ChangeExtension(file, ".mp3");
-
         }
     }
 }
