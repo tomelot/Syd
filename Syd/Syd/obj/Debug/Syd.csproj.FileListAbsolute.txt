@@ -4,4 +4,14 @@ C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\Syd.pdb
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.csprojResolveAssemblyReference.cache
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.exe
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.pdb
+<<<<<<< HEAD
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\libvideo.dll
+=======
+D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.exe.config
+D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.exe
+D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.pdb
+D:\projects\Syd\Syd\Syd\Syd\bin\Debug\libvideo.dll
+D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.csprojResolveAssemblyReference.cache
+D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.exe
+D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.pdb
+>>>>>>> tom
