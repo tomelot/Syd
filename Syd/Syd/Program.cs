@@ -13,25 +13,27 @@ namespace Syd
         static void Main(string[] args)
         {
             string file;
-            file=DownloadVideo("https://www.youtube.com/watch?v=0KSOMA3QBU0&list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj", @"C:\Users\Omer\Downloads");
-
+            file=DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"C:\Users\Omer\Downloads");
+            Console.WriteLine(file);
+            ChangeDescription(file);
 
         }
         static string DownloadVideo(string link, string dir)
         {
             var youTube = YouTube.Default;
             var video = youTube.GetVideo(link);
-            Console.WriteLine("got");
             string file = dir + @"\" + video.FullName;
             file = Path.ChangeExtension(file, ".mp3");
             System.IO.File.WriteAllBytes(file, video.GetBytes());
             return file;
-        static void ChangeDescription(string dir, string artist, string album, string name)
+        }
+        static void ChangeDescription(string path)
         {
-            TagLib.File file = TagLib.File.Create(dir);
-            file.Tag.Album = album;
-            file.Tag.Performers = new string[] { artist };
-            System.IO.File.Move(dir, Path.GetDirectoryName(dir)+name+".mp3");
+            TagLib.File f = TagLib.File.Create(path);
+            f.Tag.Album = "omer";
+            //file.Tag.Performers = new string[] { artist };
+            f.Save();
+            //System.IO.File.Move(dir, Path.GetDirectoryName(dir)+name+".mp3");
         }
     }
 }
