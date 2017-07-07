@@ -18,7 +18,10 @@ namespace Syd
         {
             var youTube = YouTube.Default;
             var video = youTube.GetVideo(link);
-            File.WriteAllBytes(dir+@"\" + video.FullName, video.GetBytes());
+            string file = dir + @"\" + video.FullName;
+            File.WriteAllBytes(file, video.GetBytes());
+            Path.ChangeExtension(file, ".mp3");
+
         }
     }
 }
