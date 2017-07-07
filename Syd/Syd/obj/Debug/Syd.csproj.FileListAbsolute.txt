@@ -6,7 +6,6 @@ C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.exe
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.pdb
 <<<<<<< HEAD
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\libvideo.dll
-<<<<<<< HEAD
 =======
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.exe.config
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.exe
@@ -23,8 +22,3 @@ C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.con
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
-=======
-C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
-C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
-C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
->>>>>>> tom
