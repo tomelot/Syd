@@ -12,15 +12,16 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"D:\projects\Syd");
+            DownloadVideo("https://www.youtube.com/watch?v=0KSOMA3QBU0&list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj", @"D:\projects\Syd");
         }
         static void DownloadVideo(string link, string dir)
         {
             var youTube = YouTube.Default;
             var video = youTube.GetVideo(link);
+            Console.WriteLine("got");
             string file = dir + @"\" + video.FullName;
+            file = Path.ChangeExtension(file, ".mp3");
             File.WriteAllBytes(file, video.GetBytes());
-            Path.ChangeExtension(file, ".mp3");
         }
     }
 }
