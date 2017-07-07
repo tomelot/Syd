@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoLibrary;
 using TagLib;
+
 namespace Syd
 {
     class Program
@@ -14,6 +15,7 @@ namespace Syd
         {
             string file;
             file=DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"C:\Users\Omer\Downloads");
+            System.IO.File.Move(file, Path.GetDirectoryName(file) + "dick" + ".mp3");
             Console.WriteLine(file);
             ChangeDescription(file);
 
