@@ -23,6 +23,7 @@ namespace Syd
             file = Path.ChangeExtension(file, ".mp3");
             File.WriteAllBytes(file, video.GetBytes());
             Console.WriteLine("tom");
+            Console.WriteLine("omer");
         }
     }
 }
