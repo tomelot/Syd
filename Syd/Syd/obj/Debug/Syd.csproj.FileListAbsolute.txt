@@ -4,6 +4,10 @@ C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\Syd.pdb
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.csprojResolveAssemblyReference.cache
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.exe
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.pdb
+<<<<<<< HEAD
+C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\libvideo.dll
+<<<<<<< HEAD
+=======
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.exe.config
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.exe
 D:\projects\Syd\Syd\Syd\Syd\bin\Debug\Syd.pdb
@@ -11,3 +15,9 @@ D:\projects\Syd\Syd\Syd\Syd\bin\Debug\libvideo.dll
 D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.csprojResolveAssemblyReference.cache
 D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.exe
 D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.pdb
+>>>>>>> tom
+=======
+C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
+C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
+C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
+>>>>>>> 01a5b3fcf78547547172ca9d29468c68ca457feb
