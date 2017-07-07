@@ -10,7 +10,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("OMER");
         }
     }
 }
