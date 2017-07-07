@@ -14,10 +14,9 @@ namespace Syd
         static void Main(string[] args)
         {
             string file;
-            file=DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"C:\Users\Omer\Downloads");
-            System.IO.File.Move(file, Path.GetDirectoryName(file) + "dick" + ".mp3");
-            Console.WriteLine(file);
-            ChangeDescription(file);
+            file=DownloadVideo("https://www.youtube.com/watch?v=IjV9Q9ujIEI", @"C:\Users\Omer\Downloads");
+            //Console.WriteLine(file);
+            //ChangeDescription(file, "omern","3124","12312");
 
         }
         static string DownloadVideo(string link, string dir)
@@ -25,16 +24,16 @@ namespace Syd
             var youTube = YouTube.Default;
             var video = youTube.GetVideo(link);
             string file = dir + @"\" + video.FullName;
+            file = Path.ChangeExtension(file, ".wav");
             file = Path.ChangeExtension(file, ".mp3");
             System.IO.File.WriteAllBytes(file, video.GetBytes());
             return file;
         }
-        static void ChangeDescription(string path)
+        static void ChangeDescription(string path,string name, string artist, string album)
         {
             TagLib.File f = TagLib.File.Create(path);
-            f.Tag.Album = "omer";
-            //file.Tag.Performers = new string[] { artist };
-            f.Save();
+            //f.Tag.Performers = new string[] { artist };
+            //f.Save();
             //System.IO.File.Move(dir, Path.GetDirectoryName(dir)+name+".mp3");
         }
     }
