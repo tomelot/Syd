@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VideoLibrary;
+using TagLib;
 
 namespace Syd
 {
@@ -12,7 +13,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"C:\Users\Omer\Downloads");
+            DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"D:\projects\Syd");
         }
         static void DownloadVideo(string link, string dir)
         {
