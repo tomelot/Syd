@@ -10,6 +10,7 @@ using TagLib;
 using MediaToolkit;
 using MediaToolkit.Model;
 using System.Text.RegularExpressions;
+using System.Net.Sockets;
 
 namespace Syd
 {
@@ -17,10 +18,12 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            string FileName = DownloadAudio("https://www.youtube.com/watch?v=IjV9Q9ujIEI", @"C:\Users\Omer\Downloads");
-            ChangeDescription(FileName, "song name","song artist","song album");
-            Console.WriteLine("done");
-            Console.ReadKey();
+            String ip = "89.139.223.149";
+            TcpClient client = new TcpClient();
+            client.Connect(ip, 25565);
+
+
+
         }
 
         //Download video from YouTube and convert it to mp3
@@ -28,6 +31,7 @@ namespace Syd
         {
             var youTube = YouTube.Default;
             var video = youTube.GetVideo(link);
+            video.Stream();
             string path = dir + @"\" + video.FullName;
             Console.WriteLine("Downloading video: "+video.FullName);
             path = GetUniqueFilePath(path);//change file name if already exists
