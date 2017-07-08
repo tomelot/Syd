@@ -8,3 +8,4 @@ C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\libvideo.dll
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
+C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\MediaToolkit.dll
