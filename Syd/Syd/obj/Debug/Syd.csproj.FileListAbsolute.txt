@@ -7,7 +7,6 @@ C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\obj\Debug\Syd.pdb
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\libvideo.dll
 <<<<<<< HEAD
 =======
-=======
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
@@ -22,15 +21,8 @@ D:\projects\Syd\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
 D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.csprojResolveAssemblyReference.cache
 D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.exe
 D:\projects\Syd\Syd\Syd\Syd\obj\Debug\Syd.pdb
-<<<<<<< HEAD
 >>>>>>> tom
-C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
-C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
-C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
 >>>>>>> 01a5b3fcf78547547172ca9d29468c68ca457feb
 >>>>>>> omer
-D:\projects\Syd\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.dll
-D:\projects\Syd\Syd\Syd\Syd\bin\Debug\taglib-sharp.dll
-D:\projects\Syd\Syd\Syd\Syd\bin\Debug\policy.2.0.taglib-sharp.config
-=======
->>>>>>> d53e744b63c9dc2d9f4c822d7fc4e35dc9488deb
+C:\Users\Omer\Documents\GitHub\Syd\Syd\Syd\bin\Debug\MediaToolkit.dll
+D:\projects\Syd\Syd\Syd\Syd\bin\Debug\MediaToolkit.dll

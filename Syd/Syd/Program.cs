@@ -17,7 +17,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            string FileName = DownloadAudio("https://www.youtube.com/watch?v=IjV9Q9ujIEI", @"C:\Users\Omer\Downloads");
+            string FileName = DownloadAudio("https://www.youtube.com/watch?v=IjV9Q9ujIEI", @"D:\projects\Syd");
             ChangeDescription(FileName, "song name","song artist","song album");
             Console.WriteLine("done");
             Console.ReadKey();
