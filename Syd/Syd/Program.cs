@@ -13,7 +13,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            string file = DownloadVideo("https://www.youtube.com/watch?v=IjV9Q9ujIEI", @"C:\Users\Omer\Downloads");
+            string file = DownloadVideo("https://www.youtube.com/watch?v=bv5JcXcI1ic", @"D:\projects\Syd");
             ChangeDescription(file, "song name","song artist","song album");
 
         }
