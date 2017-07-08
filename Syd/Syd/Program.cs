@@ -17,6 +17,7 @@ namespace Syd
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             string FileName = DownloadAudio("https://www.youtube.com/watch?v=IjV9Q9ujIEI", @"C:\Users\Omer\Downloads");
             ChangeDescription(FileName, "song name","song artist","song album");
             Console.WriteLine("done");
@@ -89,6 +90,39 @@ namespace Syd
                 while (System.IO.File.Exists(fullPath));
             }
             return fullPath;
+=======
+<<<<<<< HEAD
+            string file;
+            file=DownloadVideo("https://www.youtube.com/watch?v=xm41dHucxmM", @"C:\Users\Omer\Downloads");
+            System.IO.File.Move(file, Path.GetDirectoryName(file) + "dick" + ".mp3");
+            Console.WriteLine(file);
+            ChangeDescription(file);
+=======
+          
+>>>>>>> d53e744b63c9dc2d9f4c822d7fc4e35dc9488deb
+
+        }
+        static string DownloadVideo(string link, string dir)
+        {
+            var youTube = YouTube.Default;
+            var video = youTube.GetVideo(link);
+            string file = dir + @"\" + video.FullName;
+            file = Path.ChangeExtension(file, ".mp3");
+            System.IO.File.WriteAllBytes(file, video.GetBytes());
+<<<<<<< HEAD
+            return file;
+        }
+        static void ChangeDescription(string path)
+        {
+            TagLib.File f = TagLib.File.Create(path);
+            f.Tag.Album = "omer";
+            //file.Tag.Performers = new string[] { artist };
+            f.Save();
+            //System.IO.File.Move(dir, Path.GetDirectoryName(dir)+name+".mp3");
+=======
+            
+>>>>>>> d53e744b63c9dc2d9f4c822d7fc4e35dc9488deb
+>>>>>>> 37d14384ae55e12886961e624fa9da22e1b1a97b
         }
     }
 }
