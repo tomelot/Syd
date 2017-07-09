@@ -78,7 +78,6 @@
             this.play.TabIndex = 5;
             this.play.Text = "▶";
             this.play.UseVisualStyleBackColor = true;
-            this.play.Click += new System.EventHandler(this.play_Click);
             // 
             // FullTime
             // 
@@ -101,12 +100,10 @@
             this.TimeBar.SmallChange = 0;
             this.TimeBar.TabIndex = 9;
             this.TimeBar.TickFrequency = 0;
-            this.TimeBar.Scroll += new System.EventHandler(this.TimeBar_Scroll);
             // 
             // UpdateTimeBar
             // 
             this.UpdateTimeBar.Interval = 1000;
-            this.UpdateTimeBar.Tick += new System.EventHandler(this.UpdateTimeBar_Tick);
             // 
             // Time
             // 
