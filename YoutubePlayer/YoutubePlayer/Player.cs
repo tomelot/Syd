@@ -81,6 +81,7 @@ namespace YoutubePlayer
             player.Ctlcontrols.currentPosition = TimeBar.Value;
             UpdateTimeBar.Enabled = true;
             Play();
+            TimeWasChanged(TimeBar.Value);
         }
 
         private void TimeBar_MouseDown(object sender, MouseEventArgs e)
@@ -100,20 +101,7 @@ namespace YoutubePlayer
         }
 
         //functions
-        void Play()
-        {
-            player.Ctlcontrols.play();
-            IsPlaying = true;
-            play.Text = "❙❙";
-            UpdateTimeBar.Enabled = true;
-        }
-        void Stop()
-        {
-            player.Ctlcontrols.pause();
-            IsPlaying = false;
-            play.Text = "▶";
-            UpdateTimeBar.Enabled = false;
-        }
+        
         public void PlayURL(string url)
         {
             var youTube = YouTube.Default;
@@ -122,12 +110,52 @@ namespace YoutubePlayer
                 var video = youTube.GetVideo(url);
                 player.URL = video.GetUri();
                 IsVideo = false;
+                URLWasChanged(video.GetUri());
             }
             catch
             {
                 MessageBox.Show("We think theres an error in your YouTube URL!");
             }
         }
+
+        
+
+        void TimeWasChanged(int TimeNow)
+        {
+
+        }
+        void ChangeTimeTo(int time)//in seconds
+        {
+            player.Ctlcontrols.currentPosition = time;
+            Time.Text = SecToStr(time);
+            TimeBar.Value = time;
+        }
+        void Play()
+        {
+            player.Ctlcontrols.play();
+            IsPlaying = true;
+            play.Text = "❙❙";
+            UpdateTimeBar.Enabled = true;
+            
+
+            //send to server play
+        }
+        void Stop()
+        {
+            player.Ctlcontrols.pause();
+            IsPlaying = false;
+            play.Text = "▶";
+            UpdateTimeBar.Enabled = false;
+
+            //send to server stop
+        }
+
+        void URLWasChanged(string url)
+        {
+
+        }
+
+
 
         string SecToStr(int seconds)
         {
