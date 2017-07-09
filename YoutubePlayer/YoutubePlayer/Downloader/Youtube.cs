@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoLibrary;
 
-namespace Syd
+namespace YoutubePlayer
 {
     class Youtube
     {

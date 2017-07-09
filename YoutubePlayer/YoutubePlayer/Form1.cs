@@ -15,6 +15,8 @@ namespace YoutubePlayer
     public partial class Form1 : System.Windows.Forms.Form
     {
         Player VideoPlayer;
+        Networking IP = new Networking();
+        Server server;
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +32,21 @@ namespace YoutubePlayer
         {
             VideoPlayer = new Player(player, play, TimeBar, Time, FullTime);
         }
-        
+
+        private void CreateAServer_Click(object sender, EventArgs e)
+        {
+            if (CreateAServer.Text == "Create a Room")
+            {
+                MessageBox.Show(IP.GetComputer_InternetIP());
+                server = new Server();
+                CreateAServer.Text = "Stop The Room";
+            }
+            else
+            {
+                MessageBox.Show("Stopped the Room");
+                server.ServerStop();
+                CreateAServer.Text = "Create a Room";
+            }
+        }
     }
 }

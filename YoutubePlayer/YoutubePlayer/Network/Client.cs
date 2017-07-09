@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows.Forms;
 using System.IO;
 
-namespace Syd
+namespace YoutubePlayer
 {
     class Client
     {

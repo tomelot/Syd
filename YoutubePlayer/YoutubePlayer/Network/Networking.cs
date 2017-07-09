@@ -9,7 +9,7 @@ using System.Threading;
 using System.IO;
 
 
-namespace Syd
+namespace YoutubePlayer
 {
     class Networking
     {

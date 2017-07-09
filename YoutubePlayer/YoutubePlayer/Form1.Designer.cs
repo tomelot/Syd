@@ -39,6 +39,8 @@
             this.UpdateTimeBar = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
             this.slash = new System.Windows.Forms.Label();
+            this.CreateAServer = new System.Windows.Forms.Button();
+            this.ConnectAClient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeBar)).BeginInit();
             this.SuspendLayout();
@@ -127,11 +129,32 @@
             this.slash.Text = "/";
             this.slash.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // CreateAServer
+            // 
+            this.CreateAServer.Location = new System.Drawing.Point(658, 12);
+            this.CreateAServer.Name = "CreateAServer";
+            this.CreateAServer.Size = new System.Drawing.Size(386, 23);
+            this.CreateAServer.TabIndex = 12;
+            this.CreateAServer.Text = "Create a Room";
+            this.CreateAServer.UseVisualStyleBackColor = true;
+            this.CreateAServer.Click += new System.EventHandler(this.CreateAServer_Click);
+            // 
+            // ConnectAClient
+            // 
+            this.ConnectAClient.Location = new System.Drawing.Point(658, 41);
+            this.ConnectAClient.Name = "ConnectAClient";
+            this.ConnectAClient.Size = new System.Drawing.Size(386, 23);
+            this.ConnectAClient.TabIndex = 13;
+            this.ConnectAClient.Text = "Connect to a Room";
+            this.ConnectAClient.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 448);
+            this.Controls.Add(this.ConnectAClient);
+            this.Controls.Add(this.CreateAServer);
             this.Controls.Add(this.slash);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.FullTime);
@@ -160,6 +183,8 @@
         private System.Windows.Forms.Timer UpdateTimeBar;
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Label slash;
+        private System.Windows.Forms.Button CreateAServer;
+        private System.Windows.Forms.Button ConnectAClient;
     }
 }
 

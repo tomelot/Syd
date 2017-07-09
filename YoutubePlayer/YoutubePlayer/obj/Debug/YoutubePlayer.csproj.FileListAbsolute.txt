@@ -47,3 +47,7 @@ C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\MediaTo
 C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.config
+D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\MediaToolkit.dll
+D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.dll
+D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\taglib-sharp.dll
+D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.config
