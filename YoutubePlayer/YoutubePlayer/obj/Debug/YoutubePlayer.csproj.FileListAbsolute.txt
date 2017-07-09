@@ -43,3 +43,7 @@ D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.Properti
 D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.csproj.GenerateResource.Cache
 D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.exe
 D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.pdb
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\MediaToolkit.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\taglib-sharp.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.config
