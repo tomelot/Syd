@@ -12,7 +12,7 @@ using VideoLibrary;
 
 namespace YoutubePlayer
 {
-    public partial class Form1 : Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
         Player VideoPlayer;
         public Form1()
@@ -20,15 +20,15 @@ namespace YoutubePlayer
             InitializeComponent();
 
         }
-
         private void Navigate_Click(object sender, EventArgs e)
         {
-            VideoPlayer.PlayURL(URLtb.Text);
+            Syd.Youtube.SearchVideos(this, URLtb.Text);
+            Syd.Youtube.ShowResults(PanelSearch);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            VideoPlayer = new Player(player, play, TimeBar, Time, FullTime);
+            VideoPlayer = new Player(player, play, TimeBar, Time, FullTime, buttonAudio, AudioLevel);
         }
         
     }

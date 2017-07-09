@@ -39,8 +39,12 @@
             this.UpdateTimeBar = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
             this.slash = new System.Windows.Forms.Label();
+            this.AudioLevel = new System.Windows.Forms.TrackBar();
+            this.buttonAudio = new System.Windows.Forms.Button();
+            this.PanelSearch = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AudioLevel)).BeginInit();
             this.SuspendLayout();
             // 
             // URLtb
@@ -82,7 +86,7 @@
             // FullTime
             // 
             this.FullTime.AutoSize = true;
-            this.FullTime.Location = new System.Drawing.Point(603, 383);
+            this.FullTime.Location = new System.Drawing.Point(552, 383);
             this.FullTime.Name = "FullTime";
             this.FullTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.FullTime.Size = new System.Drawing.Size(49, 13);
@@ -96,7 +100,7 @@
             this.TimeBar.Location = new System.Drawing.Point(41, 378);
             this.TimeBar.Maximum = 100;
             this.TimeBar.Name = "TimeBar";
-            this.TimeBar.Size = new System.Drawing.Size(501, 45);
+            this.TimeBar.Size = new System.Drawing.Size(450, 45);
             this.TimeBar.SmallChange = 0;
             this.TimeBar.TabIndex = 9;
             this.TimeBar.TickFrequency = 0;
@@ -108,7 +112,7 @@
             // Time
             // 
             this.Time.AutoSize = true;
-            this.Time.Location = new System.Drawing.Point(548, 383);
+            this.Time.Location = new System.Drawing.Point(497, 383);
             this.Time.Name = "Time";
             this.Time.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Time.Size = new System.Drawing.Size(49, 13);
@@ -119,7 +123,7 @@
             // slash
             // 
             this.slash.AutoSize = true;
-            this.slash.Location = new System.Drawing.Point(594, 383);
+            this.slash.Location = new System.Drawing.Point(543, 383);
             this.slash.Name = "slash";
             this.slash.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.slash.Size = new System.Drawing.Size(12, 13);
@@ -127,11 +131,42 @@
             this.slash.Text = "/";
             this.slash.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // AudioLevel
+            // 
+            this.AudioLevel.LargeChange = 0;
+            this.AudioLevel.Location = new System.Drawing.Point(607, 314);
+            this.AudioLevel.Maximum = 5;
+            this.AudioLevel.Name = "AudioLevel";
+            this.AudioLevel.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.AudioLevel.Size = new System.Drawing.Size(45, 86);
+            this.AudioLevel.TabIndex = 12;
+            this.AudioLevel.Value = 3;
+            this.AudioLevel.Visible = false;
+            // 
+            // buttonAudio
+            // 
+            this.buttonAudio.Location = new System.Drawing.Point(607, 378);
+            this.buttonAudio.Name = "buttonAudio";
+            this.buttonAudio.Size = new System.Drawing.Size(45, 23);
+            this.buttonAudio.TabIndex = 14;
+            this.buttonAudio.Text = "🔊";
+            this.buttonAudio.UseVisualStyleBackColor = true;
+            // 
+            // PanelSearch
+            // 
+            this.PanelSearch.Location = new System.Drawing.Point(12, 433);
+            this.PanelSearch.Name = "PanelSearch";
+            this.PanelSearch.Size = new System.Drawing.Size(1032, 317);
+            this.PanelSearch.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 448);
+            this.ClientSize = new System.Drawing.Size(1100, 776);
+            this.Controls.Add(this.PanelSearch);
+            this.Controls.Add(this.AudioLevel);
+            this.Controls.Add(this.buttonAudio);
             this.Controls.Add(this.slash);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.FullTime);
@@ -145,6 +180,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AudioLevel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +196,9 @@
         private System.Windows.Forms.Timer UpdateTimeBar;
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Label slash;
+        private System.Windows.Forms.TrackBar AudioLevel;
+        private System.Windows.Forms.Button buttonAudio;
+        private System.Windows.Forms.Panel PanelSearch;
     }
 }
 

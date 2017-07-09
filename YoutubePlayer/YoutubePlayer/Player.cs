@@ -18,6 +18,8 @@ namespace YoutubePlayer
         Label Time;
         Label FullTime;
         Timer UpdateTimeBar;
+        Button labelAudio;
+        TrackBar AudioLevel;
         public bool IsVideo
         {
             get { return video; }
@@ -28,23 +30,28 @@ namespace YoutubePlayer
                 play.Enabled = value;
             }
         }
-        public Player(AxWMPLib.AxWindowsMediaPlayer player, Button play, TrackBar TimeBar, Label Time, Label FullTime)
+        public Player(AxWMPLib.AxWindowsMediaPlayer player, Button play, TrackBar TimeBar, Label Time, Label FullTime, Button labelAudio, TrackBar AudioLevel)
         {
             this.player = player;
             this.play = play;
             this.TimeBar = TimeBar;
             this.Time = Time;
             this.FullTime = FullTime;
+            this.labelAudio = labelAudio;
+            this.AudioLevel = AudioLevel;
             UpdateTimeBar = new Timer();
             this.player.uiMode = "none";
             IsVideo = false;
             //add events
-            player.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
-            TimeBar.MouseUp += new MouseEventHandler(TimeBar_MouseUp);
-            TimeBar.MouseDown += new MouseEventHandler(TimeBar_MouseDown);
-            TimeBar.Scroll += new EventHandler(TimeBar_Scroll);
-            UpdateTimeBar.Tick += new EventHandler(UpdateTimeBar_Tick);
-            play.Click += new EventHandler(play_Click);
+            this.player.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
+            this.TimeBar.MouseUp += new MouseEventHandler(TimeBar_MouseUp);
+            this.TimeBar.MouseDown += new MouseEventHandler(TimeBar_MouseDown);
+            this.TimeBar.Scroll += new EventHandler(TimeBar_Scroll);
+            this.AudioLevel.Scroll += new EventHandler(AudioLevel_Scroll);
+            this.UpdateTimeBar.Tick += new EventHandler(UpdateTimeBar_Tick);
+            this.play.Click += new EventHandler(play_Click);
+            this.labelAudio.Click += new EventHandler(labelAudio_Click);
+            this.AudioLevel.MouseLeave += new EventHandler(AudioLevel_MouseLeave);
         }
 
         //state of player changed
@@ -74,8 +81,18 @@ namespace YoutubePlayer
             else
                 Play();
         }
-
-
+        private void labelAudio_Click(object sender, EventArgs e)
+        {
+            AudioLevel.Visible = true;
+        }
+        private void AudioLevel_MouseLeave(object sender, EventArgs e)
+        {
+            AudioLevel.Visible = false;
+        }
+        private void AudioLevel_Scroll(object sender, EventArgs e)
+        {
+            player.settings.volume = AudioLevel.Value * 20;
+        }
         private void TimeBar_MouseUp(object sender, MouseEventArgs e)
         {
             player.Ctlcontrols.currentPosition = TimeBar.Value;
