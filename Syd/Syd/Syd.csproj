@@ -54,6 +54,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Description.cs" />
+    <Compile Include="Youtube.cs" />
+    <Compile Include="Convertor.cs" />
+    <Compile Include="Pathes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
