@@ -10,18 +10,20 @@ using TagLib;
 using MediaToolkit;
 using MediaToolkit.Model;
 using System.Text.RegularExpressions;
-using System.Net;
 using System.Net.Sockets;
-using System.Threading;
+
 
 namespace Syd
 {
     class Program
     {
-       
         static void Main(string[] args)
         {
-          
+            string path=Youtube.DownloadYoutube("link", "path");
+            path=Convertor.MP4toMP3(path);
+            Description.ChangeDescription(path,"name","art","album");
         }
+
+     
     }
 }
