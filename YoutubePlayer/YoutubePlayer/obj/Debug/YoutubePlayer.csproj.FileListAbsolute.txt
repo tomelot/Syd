@@ -1,0 +1,15 @@
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\bin\Debug\YoutubePlayer.exe.config
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\bin\Debug\YoutubePlayer.exe
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\bin\Debug\YoutubePlayer.pdb
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.csprojResolveAssemblyReference.cache
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.Form1.resources
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.Properties.Resources.resources
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.csproj.GenerateResource.Cache
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.exe
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.pdb
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\bin\Debug\Interop.WMPLib.dll
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\Interop.WMPLib.dll
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\obj\Debug\YoutubePlayer.csproj.ResolveComReference.cache
+C:\Users\Omer\Documents\GitHub\YoutubePlayer\YoutubePlayer\bin\Debug\libvideo.dll
