@@ -12,7 +12,7 @@ namespace YoutubePlayer
     {
         public bool IsPlaying = false;
         bool video = false;
-        AxWMPLib.AxWindowsMediaPlayer player;
+        public AxWMPLib.AxWindowsMediaPlayer player;
         Button play;
         TrackBar TimeBar;
         Label Time;
@@ -103,6 +103,10 @@ namespace YoutubePlayer
 
         private void TimeBar_MouseDown(object sender, MouseEventArgs e)
         {
+            double width = TimeBar.Width-16;
+            double max = TimeBar.Maximum;
+            double mx = e.X-8;
+            TimeBar.Value = (int)Math.Round(mx / (width / max));
             UpdateTimeBar.Enabled = false;
         }
 
@@ -118,21 +122,24 @@ namespace YoutubePlayer
         }
 
         //functions
-        
+
+        public void SearchThis(Syd.YouTubeSearch view,string sch)
+        {
+
+            if (Syd.YouTubeSearch.IsURL(sch))
+            {
+                PlayURL(sch);
+            }
+            else
+            {
+                view.SearchVideos(sch);
+            }
+        }
+
         public void PlayURL(string url)
         {
-            var youTube = YouTube.Default;
-            try
-            {
-                var video = youTube.GetVideo(url);
-                player.URL = video.GetUri();
-                IsVideo = false;
-                URLWasChanged(video.GetUri());
-            }
-            catch
-            {
-                MessageBox.Show("We think theres an error in your YouTube URL!");
-            }
+            URLWasChanged(url);
+            player.URL = Syd.YouTubeSearch.GetURI(url);
         }
 
         
@@ -169,7 +176,10 @@ namespace YoutubePlayer
 
         void URLWasChanged(string url)
         {
-
+            IsVideo = false;
+            Stop();
+            player.Ctlcontrols.stop();
+            
         }
 
 

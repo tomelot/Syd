@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.URLtb = new System.Windows.Forms.TextBox();
             this.Navigate = new System.Windows.Forms.Button();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
@@ -41,7 +44,10 @@
             this.slash = new System.Windows.Forms.Label();
             this.AudioLevel = new System.Windows.Forms.TrackBar();
             this.buttonAudio = new System.Windows.Forms.Button();
-            this.PanelSearch = new System.Windows.Forms.Panel();
+            this.ViewSearch = new System.Windows.Forms.ListView();
+            this.VideoName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.URL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.YouTubeImageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AudioLevel)).BeginInit();
@@ -49,6 +55,7 @@
             // 
             // URLtb
             // 
+            this.URLtb.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.URLtb.Location = new System.Drawing.Point(12, 407);
             this.URLtb.Name = "URLtb";
             this.URLtb.Size = new System.Drawing.Size(569, 20);
@@ -152,19 +159,56 @@
             this.buttonAudio.Text = "🔊";
             this.buttonAudio.UseVisualStyleBackColor = true;
             // 
-            // PanelSearch
+            // ViewSearch
             // 
-            this.PanelSearch.Location = new System.Drawing.Point(12, 433);
-            this.PanelSearch.Name = "PanelSearch";
-            this.PanelSearch.Size = new System.Drawing.Size(1032, 317);
-            this.PanelSearch.TabIndex = 15;
+            this.ViewSearch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.VideoName,
+            this.URL});
+            this.ViewSearch.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup2";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup3";
+            this.ViewSearch.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
+            this.ViewSearch.LargeImageList = this.YouTubeImageList;
+            this.ViewSearch.Location = new System.Drawing.Point(12, 433);
+            this.ViewSearch.MultiSelect = false;
+            this.ViewSearch.Name = "ViewSearch";
+            this.ViewSearch.Size = new System.Drawing.Size(867, 317);
+            this.ViewSearch.TabIndex = 16;
+            this.ViewSearch.UseCompatibleStateImageBehavior = false;
+            // 
+            // VideoName
+            // 
+            this.VideoName.Text = "Video Name";
+            // 
+            // URL
+            // 
+            this.URL.Text = "URL";
+            // 
+            // YouTubeImageList
+            // 
+            this.YouTubeImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("YouTubeImageList.ImageStream")));
+            this.YouTubeImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.YouTubeImageList.Images.SetKeyName(0, "AutoSave_5258b_7e123800_2e7aa1d.png");
+            this.YouTubeImageList.Images.SetKeyName(1, "AutoSave_5258b_7e123800_2f7b261.png");
+            this.YouTubeImageList.Images.SetKeyName(2, "AutoSave_5258b_7e123800_32d8e67.png");
+            this.YouTubeImageList.Images.SetKeyName(3, "AutoSave_5258b_7e123800_30279ff.png");
+            this.YouTubeImageList.Images.SetKeyName(4, "AutoSave_52581_7e05e800_34b1b00.png");
+            this.YouTubeImageList.Images.SetKeyName(5, "AutoSave_52581_7e05e800_360ec0a.png");
+            this.YouTubeImageList.Images.SetKeyName(6, "CheckPoint_5258b_7e123800_31d8cea.png");
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 776);
-            this.Controls.Add(this.PanelSearch);
+            this.Controls.Add(this.ViewSearch);
             this.Controls.Add(this.AudioLevel);
             this.Controls.Add(this.buttonAudio);
             this.Controls.Add(this.slash);
@@ -187,7 +231,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox URLtb;
         private System.Windows.Forms.Button Navigate;
         private AxWMPLib.AxWindowsMediaPlayer player;
         private System.Windows.Forms.Button play;
@@ -198,7 +241,11 @@
         private System.Windows.Forms.Label slash;
         private System.Windows.Forms.TrackBar AudioLevel;
         private System.Windows.Forms.Button buttonAudio;
-        private System.Windows.Forms.Panel PanelSearch;
+        private System.Windows.Forms.ListView ViewSearch;
+        private System.Windows.Forms.ImageList YouTubeImageList;
+        private System.Windows.Forms.TextBox URLtb;
+        private System.Windows.Forms.ColumnHeader VideoName;
+        private System.Windows.Forms.ColumnHeader URL;
     }
 }
 

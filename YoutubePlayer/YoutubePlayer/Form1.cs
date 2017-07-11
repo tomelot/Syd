@@ -15,21 +15,20 @@ namespace YoutubePlayer
     public partial class Form1 : System.Windows.Forms.Form
     {
         Player VideoPlayer;
+        Syd.YouTubeSearch view;
         public Form1()
         {
             InitializeComponent();
-
         }
         private void Navigate_Click(object sender, EventArgs e)
         {
-            Syd.Youtube.SearchVideos(this, URLtb.Text);
-            Syd.Youtube.ShowResults(PanelSearch);
+            VideoPlayer.SearchThis(view,URLtb.Text);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             VideoPlayer = new Player(player, play, TimeBar, Time, FullTime, buttonAudio, AudioLevel);
+            view = new Syd.YouTubeSearch(ViewSearch,VideoPlayer);
         }
-        
     }
 }
