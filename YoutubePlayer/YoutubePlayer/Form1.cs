@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoLibrary;
+using Microsoft.VisualBasic;
 
 namespace YoutubePlayer
 {
@@ -17,6 +18,7 @@ namespace YoutubePlayer
         Player VideoPlayer;
         Networking IP = new Networking();
         Server server;
+        Client client;
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace YoutubePlayer
         private void Form1_Load(object sender, EventArgs e)
         {
             VideoPlayer = new Player(player, play, TimeBar, Time, FullTime);
+
         }
 
         private void CreateAServer_Click(object sender, EventArgs e)
@@ -40,13 +43,22 @@ namespace YoutubePlayer
                 MessageBox.Show(IP.GetComputer_InternetIP());
                 server = new Server();
                 CreateAServer.Text = "Stop The Room";
+                ConnectAClient.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Stopped the Room");
                 server.ServerStop();
                 CreateAServer.Text = "Create a Room";
+                ConnectAClient.Enabled = true;
             }
+        }
+
+        private void ConnectAClient_Click(object sender, EventArgs e)
+        {
+            string IP = Interaction.InputBox("Enter Server's IP", "Connect");
+            client = new Client(IP);
+            client.ClientSend("tt");
         }
     }
 }

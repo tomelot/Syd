@@ -14,25 +14,31 @@ namespace YoutubePlayer
     class Client
     {
         public Networking NetFunctions = new Networking();
-
-        public void ClientConnect()
+        TcpClient client;
+        Thread myNewThread;
+        public Client(String ip)
         {
-            String ip = Console.ReadLine();
-            TcpClient client = new TcpClient();
+            client = new TcpClient();
             client.Connect(ip, 25565);
-            Thread myNewThread = new Thread(() => ClientLooper(client));
+            myNewThread = new Thread(() => ClientLooper());
             myNewThread.Start();
             Console.WriteLine(NetFunctions.GetComputer_InternetIP());
         }
 
-        private void ClientLooper(TcpClient client)
+        public void Clientstop()
+        {
+            client.Close();
+            myNewThread.Abort();
+        }
+
+        private void ClientLooper()
         {
             while (true)
             {
-
+                ClientReceive();
             }
         }
-        public void ClientReceive(TcpClient client)
+        public void ClientReceive()
         {
             byte[] bytes = new byte[client.ReceiveBufferSize];
             String data = null;
@@ -49,7 +55,7 @@ namespace YoutubePlayer
             }
         }
 
-        public void ClientSend(TcpClient client,string data)
+        public void ClientSend(string data)
         {
             NetworkStream stream = client.GetStream();
             byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);

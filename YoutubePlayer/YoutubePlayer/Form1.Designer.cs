@@ -147,6 +147,7 @@
             this.ConnectAClient.TabIndex = 13;
             this.ConnectAClient.Text = "Connect to a Room";
             this.ConnectAClient.UseVisualStyleBackColor = true;
+            this.ConnectAClient.Click += new System.EventHandler(this.ConnectAClient_Click);
             // 
             // Form1
             // 
