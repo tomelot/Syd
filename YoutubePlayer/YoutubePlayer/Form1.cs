@@ -19,6 +19,7 @@ namespace YoutubePlayer
         Networking IP = new Networking();
         Server server;
         Client client;
+        Boolean clientconnect = false;
         public Form1()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace YoutubePlayer
             if (CreateAServer.Text == "Create a Room")
             {
                 MessageBox.Show(IP.GetComputer_InternetIP());
+                MessageBox.Show(IP.GetComputer_LanIP());
                 server = new Server();
                 CreateAServer.Text = "Stop The Room";
                 ConnectAClient.Enabled = false;
@@ -56,9 +58,14 @@ namespace YoutubePlayer
 
         private void ConnectAClient_Click(object sender, EventArgs e)
         {
+            if (clientconnect)
+            {
+                client.Clientstop();
+                clientconnect = false;
+            }
             string IP = Interaction.InputBox("Enter Server's IP", "Connect");
             client = new Client(IP);
-            client.ClientSend("tt");
+            clientconnect = true;
         }
     }
 }

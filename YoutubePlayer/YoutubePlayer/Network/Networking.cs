@@ -7,7 +7,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
-
+using System.Net.NetworkInformation;
+using Open.Nat;
 
 namespace YoutubePlayer
 {
@@ -43,6 +44,14 @@ namespace YoutubePlayer
             return ipAddress.
                 Replace("<html><head><title>Current IP Check</title></head><body>Current IP Address: ", string.Empty).
                 Replace("</body></html>", string.Empty);
+        }
+        public async Task PortForAsync(int port)
+        {
+            var discoverer = new NatDiscoverer();
+            var cts = new CancellationTokenSource(10000);
+            var device = await discoverer.DiscoverDeviceAsync(PortMapper.Upnp, cts);
+
+            await device.CreatePortMapAsync(new Mapping(Protocol.Tcp, port+1, port, "server"));
         }
     }
 }

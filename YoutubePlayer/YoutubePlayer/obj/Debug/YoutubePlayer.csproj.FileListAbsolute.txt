@@ -51,3 +51,5 @@ D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\MediaToolkit.dll
 D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.dll
 D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\taglib-sharp.dll
 D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.config
+D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\Open.Nat.dll
+D:\projects\Syd\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\Open.Nat.xml

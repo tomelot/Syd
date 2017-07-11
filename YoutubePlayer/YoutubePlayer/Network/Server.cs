@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
+using Open.Nat;
 
 namespace YoutubePlayer
 {
@@ -25,16 +26,15 @@ namespace YoutubePlayer
         public Server()
         {   //Init the server
             Int32 port = 25565;
-            IPAddress localAddr = IPAddress.Parse(NetFunctions.GetComputer_LanIP());
-            server = new TcpListener(localAddr, port);
+            NetFunctions.PortForAsync(port);
+            server = new TcpListener(IPAddress.Any, port);
             server.Start();
             //New Thread Looper
             ServerLooperClientsT = new Thread(() => ServerLooperClients());
             ServerLooperReccivetT = new Thread(() => ServerLooperReccive());
             ServerLooperClientsT.Start();
             ServerLooperReccivetT.Start();
-
-
+          
 
         }
 
@@ -106,6 +106,7 @@ namespace YoutubePlayer
                         {
 
                         }
+                        stream.Close();
                     }
                     else
                     {
