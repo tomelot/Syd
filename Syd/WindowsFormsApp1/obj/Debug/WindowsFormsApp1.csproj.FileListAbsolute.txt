@@ -1,0 +1,10 @@
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\bin\Debug\libvideo.dll
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Omer\Documents\GitHub\Syd\Syd\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

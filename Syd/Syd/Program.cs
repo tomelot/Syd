@@ -19,12 +19,10 @@ namespace Syd
     {
         static void Main(string[] args)
         {
-            var youTube = YouTube.Default;
-            var video = youTube.GetVideo("https://www.youtube.com/watch?v=sFHG8ciw5AQ");
-            Console.WriteLine(video.FullName);
-            //string path=Youtube.DownloadYoutube("https://www.youtube.com/watch?v=sFHG8ciw5AQ", @"C:\Users\Omer\Downloads");
+
+            string path=Youtube.DownloadYoutube("https://www.youtube.com/watch?v=yg-MFXf0UKs", @"C:\Users\Omer\Downloads");
             //path=Convertor.MP4toMP3(path);
-            //Description.ChangeDescription(path,"name","art","album");
+            //Description.DeleteCover(@"C:\Users\Omer\Downloads\Am\y.mp3");
         }
 
      

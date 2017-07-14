@@ -21,5 +21,17 @@ namespace Syd
             NewFileName = Pathes.GetUniqueFilePath(NewFileName);//change file name if already exists
             System.IO.File.Move(path, NewFileName);
         }
+        public static void DeleteTags(string path)
+        {
+            TagLib.File F = TagLib.File.Create(path);
+            F.RemoveTags(TagLib.TagTypes.AllTags);
+            F.Save();
+        }
+        public static void DeleteCover(string path)
+        {
+            TagLib.File F = TagLib.File.Create(path);
+            F.Tag.Pictures = new TagLib.IPicture[] { new TagLib.Picture()};
+            F.Save();
+        }
     }
 }

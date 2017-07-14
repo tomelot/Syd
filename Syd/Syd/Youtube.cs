@@ -13,10 +13,37 @@ namespace Syd
         {
             var youTube = YouTube.Default;
             var video = youTube.GetVideo(link);
-            string path = dir + @"\" + video.FullName;
+            string NewName = video.FullName;
+            string path = dir + @"\" + NewName;
             path = Pathes.GetUniqueFilePath(path);//change file name if already exists
             System.IO.File.WriteAllBytes(path, video.GetBytes());
             return path;
+        }
+        public static bool IsURL(string url)
+        {
+            var youTube = YouTube.Default;
+            try
+            {
+                var video = youTube.GetVideo(url);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static string GetURI(string url)
+        {
+            try
+            {
+                var youTube = YouTube.Default;
+                var video = youTube.GetVideo(url);
+                return video.GetUri();
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
