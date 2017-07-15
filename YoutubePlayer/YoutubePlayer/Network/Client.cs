@@ -22,17 +22,17 @@ namespace YoutubePlayer
         {
             try
             {
-                IPAddress tryip = IPAddress.Parse(ip);
-                Int32 port = 25565;
-                NetFunctions.PortForAsync(port);
-                var client = new TcpClient();
+                Int32 port = 8888;
+                client = new TcpClient();
+                IPAddress IP = IPAddress.Parse(ip);
                 client.Connect(ip, port);
                 myNewThread = new Thread(() => ClientLooper(ip));
                 myNewThread.Start();
+
             }
             catch
             {
-
+                MessageBox.Show("error");
             }
         }
 
@@ -48,7 +48,6 @@ namespace YoutubePlayer
 
         private void ClientLooper(string ip)
         {
-            while (true)
             {
                 ClientReceive();
             }

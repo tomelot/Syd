@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoLibrary;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace YoutubePlayer
 {
@@ -23,7 +24,13 @@ namespace YoutubePlayer
         public Form1()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
         }
 
         private void Navigate_Click(object sender, EventArgs e)
@@ -34,7 +41,6 @@ namespace YoutubePlayer
         private void Form1_Load(object sender, EventArgs e)
         {
             VideoPlayer = new Player(player, play, TimeBar, Time, FullTime);
-
         }
 
         private void CreateAServer_Click(object sender, EventArgs e)

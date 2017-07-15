@@ -55,6 +55,7 @@
             // 
             // Navigate
             // 
+            this.Navigate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Navigate.Location = new System.Drawing.Point(587, 406);
             this.Navigate.Name = "Navigate";
             this.Navigate.Size = new System.Drawing.Size(65, 23);
@@ -131,6 +132,7 @@
             // 
             // CreateAServer
             // 
+            this.CreateAServer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CreateAServer.Location = new System.Drawing.Point(658, 12);
             this.CreateAServer.Name = "CreateAServer";
             this.CreateAServer.Size = new System.Drawing.Size(386, 23);
@@ -141,6 +143,7 @@
             // 
             // ConnectAClient
             // 
+            this.ConnectAClient.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ConnectAClient.Location = new System.Drawing.Point(658, 41);
             this.ConnectAClient.Name = "ConnectAClient";
             this.ConnectAClient.Size = new System.Drawing.Size(386, 23);

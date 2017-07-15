@@ -51,7 +51,7 @@ namespace YoutubePlayer
             var cts = new CancellationTokenSource(10000);
             var device = await discoverer.DiscoverDeviceAsync(PortMapper.Upnp, cts);
 
-            await device.CreatePortMapAsync(new Mapping(Protocol.Tcp, port+1, port, "server"));
+            await device.CreatePortMapAsync(new Mapping(Protocol.Tcp,port, port, "openPort"));
         }
     }
 }

@@ -14,7 +14,8 @@ namespace YoutubePlayer
 {
     class Server
     {
-        TcpListener server;
+        TcpListener serverSocket;
+        TcpClient clientSocket;
         Boolean stop = false;
         public Thread ServerLooperClientsT;
         public Thread ServerLooperReccivetT;
@@ -25,10 +26,10 @@ namespace YoutubePlayer
 
         public Server()
         {   //Init the server
-            Int32 port = 25565;
-            NetFunctions.PortForAsync(port);
-            server = new TcpListener(IPAddress.Any, port);
-            server.Start();
+            NetFunctions.PortForAsync(8888);
+            serverSocket = TcpListener.Create(8888);
+            clientSocket = default(TcpClient);
+            serverSocket.Start();
             //New Thread Looper
             ServerLooperClientsT = new Thread(() => ServerLooperClients());
             ServerLooperReccivetT = new Thread(() => ServerLooperReccive());
@@ -44,7 +45,7 @@ namespace YoutubePlayer
             stop = true;
             ServerLooperClientsT.Suspend();
             ServerLooperReccivetT.Abort();
-            server.Stop();
+            serverSocket.Stop();
         }
         private void ServerLooperClients()
         {
@@ -66,12 +67,9 @@ namespace YoutubePlayer
             try
             {
                 //Accepting Client to the server
-                if (server.Pending())
-                {
-                    TcpClient client = server.AcceptTcpClient();
-                    clients.Add(client);
-                    MessageBox.Show("Conected to: " + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()));
-                }
+                    clientSocket = serverSocket.AcceptTcpClient();
+                    clients.Add(clientSocket);
+                    MessageBox.Show("Conected to: " + IPAddress.Parse(((IPEndPoint)clientSocket.Client.RemoteEndPoint).Address.ToString()));
             }
             catch
             {
@@ -100,7 +98,6 @@ namespace YoutubePlayer
                             //Decode the data
                             data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
                         }
-                        MessageBox.Show(data);
                         //Switch case for the type of data
                         switch (data.Split(':')[0])
                         {
