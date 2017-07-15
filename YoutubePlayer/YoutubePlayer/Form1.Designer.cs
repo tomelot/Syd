@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.URLtb = new System.Windows.Forms.TextBox();
             this.Navigate = new System.Windows.Forms.Button();
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.play = new System.Windows.Forms.Button();
             this.FullTime = new System.Windows.Forms.Label();
             this.TimeBar = new System.Windows.Forms.TrackBar();
@@ -48,9 +47,10 @@
             this.VideoName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.URL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.YouTubeImageList = new System.Windows.Forms.ImageList(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            this.player = new AxAXVLC.AxVLCPlugin2();
             ((System.ComponentModel.ISupportInitialize)(this.TimeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AudioLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // URLtb
@@ -71,15 +71,6 @@
             this.Navigate.Text = "Go";
             this.Navigate.UseVisualStyleBackColor = true;
             this.Navigate.Click += new System.EventHandler(this.Navigate_Click);
-            // 
-            // player
-            // 
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(12, 12);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(640, 360);
-            this.player.TabIndex = 3;
             // 
             // play
             // 
@@ -114,6 +105,7 @@
             // 
             // UpdateTimeBar
             // 
+            this.UpdateTimeBar.Enabled = true;
             this.UpdateTimeBar.Interval = 1000;
             // 
             // Time
@@ -203,28 +195,37 @@
             this.YouTubeImageList.Images.SetKeyName(5, "AutoSave_52581_7e05e800_360ec0a.png");
             this.YouTubeImageList.Images.SetKeyName(6, "CheckPoint_5258b_7e123800_31d8cea.png");
             // 
+            // player
+            // 
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(12, 12);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(640, 360);
+            this.player.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 776);
-            this.Controls.Add(this.ViewSearch);
             this.Controls.Add(this.AudioLevel);
+            this.Controls.Add(this.player);
+            this.Controls.Add(this.ViewSearch);
             this.Controls.Add(this.buttonAudio);
             this.Controls.Add(this.slash);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.FullTime);
             this.Controls.Add(this.play);
-            this.Controls.Add(this.player);
             this.Controls.Add(this.Navigate);
             this.Controls.Add(this.URLtb);
             this.Controls.Add(this.TimeBar);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AudioLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,7 +233,6 @@
 
         #endregion
         private System.Windows.Forms.Button Navigate;
-        private AxWMPLib.AxWindowsMediaPlayer player;
         private System.Windows.Forms.Button play;
         private System.Windows.Forms.Label FullTime;
         private System.Windows.Forms.TrackBar TimeBar;
@@ -246,6 +246,7 @@
         private System.Windows.Forms.TextBox URLtb;
         private System.Windows.Forms.ColumnHeader VideoName;
         private System.Windows.Forms.ColumnHeader URL;
+        private AxAXVLC.AxVLCPlugin2 player;
     }
 }
 

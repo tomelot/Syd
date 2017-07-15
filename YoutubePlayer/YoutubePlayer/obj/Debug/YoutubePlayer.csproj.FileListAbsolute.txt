@@ -48,3 +48,7 @@ C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.
 C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\taglib-sharp.dll
 C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\policy.2.0.taglib-sharp.config
 C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\YoutubeSearch.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\obj\Debug\Interop.AXVLC.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\obj\Debug\AxInterop.AXVLC.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\Interop.AXVLC.dll
+C:\Users\Omer\Documents\GitHub\Syd\YoutubePlayer\YoutubePlayer\bin\Debug\AxInterop.AXVLC.dll

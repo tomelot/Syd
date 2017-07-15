@@ -23,6 +23,7 @@ namespace YoutubePlayer
         private void Navigate_Click(object sender, EventArgs e)
         {
             VideoPlayer.SearchThis(view,URLtb.Text);
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
