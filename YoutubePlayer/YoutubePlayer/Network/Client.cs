@@ -22,18 +22,19 @@ namespace YoutubePlayer
         {
             try
             {
+                NetFunctions.PortForAsync(8888);
                 Int32 port = 8888;
                 client = new TcpClient();
                 IPAddress IP = IPAddress.Parse(ip);
                 client.Connect(ip, port);
                 myNewThread = new Thread(() => ClientLooper(ip));
                 myNewThread.Start();
-
             }
             catch
             {
                 MessageBox.Show("error");
             }
+
         }
 
         public void Clientstop()
