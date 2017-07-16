@@ -128,18 +128,12 @@ namespace YoutubePlayer
 
             if (YouTubeSearch.IsURL(sch))
             {
-                PlayURL(sch);
+                YouTubeSearch.PlayURL(sch,this.player);
             }
             else
             {
                 view.SearchVideos(sch);
             }
-        }
-
-        public void PlayURL(string url)
-        {
-            URLWasChanged(url);
-            player.URL = YouTubeSearch.GetURI(url);
         }
 
 

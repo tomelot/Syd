@@ -85,7 +85,7 @@ namespace YoutubePlayer
         {
             if (view.SelectedItems.Count == 1)
             {
-                player.PlayURL(URLs[view.SelectedItems[0].Index]);
+                YouTubeSearch.PlayURL(URLs[view.SelectedItems[0].Index],player.player);
             }
         }
         public static bool IsURL(string url)
@@ -101,18 +101,41 @@ namespace YoutubePlayer
                 return false;
             }
         }
-        public static string GetURI(string url)
+        public static void PlayURL(string url,AxWMPLib.AxWindowsMediaPlayer player)
         {
+            List<object> input = new List<object>();
+            input.Add(url);
+            input.Add(player);
+            BackgroundWorker URI = new BackgroundWorker();
+            URI.DoWork += new DoWorkEventHandler(URI_DoWork);
+            URI.RunWorkerCompleted += new RunWorkerCompletedEventHandler(URI_Complete);
+            URI.RunWorkerAsync(input);
+        }
+        private static void URI_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<object> input = new List<object>();
+            input = e.Argument as List<object>;
+            string url = input[0] as string;
+            
             try
             {
                 var youTube = YouTube.Default;
                 var video = youTube.GetVideo(url);
-                return video.GetUri();
+                input[0] = video.GetUri();
             }
             catch
             {
-                return null;
+                input[0] = null;
             }
+            e.Result = input;
+        }
+        private static void URI_Complete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            List<object> input = new List<object>();
+            input = e.Result as List<object>;
+            string url = input[0] as string;
+            AxWMPLib.AxWindowsMediaPlayer player = input[1] as AxWMPLib.AxWindowsMediaPlayer;
+            player.URL = url;
         }
     }
 }
