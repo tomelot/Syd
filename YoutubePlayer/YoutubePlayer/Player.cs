@@ -12,7 +12,7 @@ namespace YoutubePlayer
     {
         public bool IsPlaying = false;
         bool video = false;
-        public AxAXVLC.AxVLCPlugin2 player;
+        public AxWMPLib.AxWindowsMediaPlayer player;
         Button play;
         TrackBar TimeBar;
         Label Time;
@@ -30,7 +30,7 @@ namespace YoutubePlayer
                 play.Enabled = value;
             }
         }
-        public Player(AxAXVLC.AxVLCPlugin2 player, Button play, TrackBar TimeBar, Label Time, Label FullTime, Button labelAudio, TrackBar AudioLevel)
+        public Player(AxWMPLib.AxWindowsMediaPlayer player, Button play, TrackBar TimeBar, Label Time, Label FullTime, Button labelAudio, TrackBar AudioLevel)
         {
             this.player = player;
             this.play = play;
@@ -40,10 +40,10 @@ namespace YoutubePlayer
             this.labelAudio = labelAudio;
             this.AudioLevel = AudioLevel;
             UpdateTimeBar = new Timer();
-            UpdateTimeBar.Enabled = true;
-            this.player.CtlVisible = false;
+            this.player.uiMode = "none";
             IsVideo = false;
             //add events
+            this.player.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
             this.TimeBar.MouseUp += new MouseEventHandler(TimeBar_MouseUp);
             this.TimeBar.MouseDown += new MouseEventHandler(TimeBar_MouseDown);
             this.TimeBar.Scroll += new EventHandler(TimeBar_Scroll);
@@ -54,6 +54,25 @@ namespace YoutubePlayer
             this.AudioLevel.MouseLeave += new EventHandler(AudioLevel_MouseLeave);
         }
 
+        //state of player changed
+        private void player_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (e.newState == 3)//play
+            {
+                if (!IsVideo)
+                {
+                    FullTime.Text = SecToStr((int)player.currentMedia.duration);
+                    TimeBar.Maximum = (int)(player.currentMedia.duration);
+                    IsVideo = true;
+                    Play();
+                }
+            }
+            else if (e.newState == 1)//stopped
+            {
+                IsPlaying = false;
+                play.Text = "▶";
+            }
+        }
 
         private void play_Click(object sender, EventArgs e)
         {
@@ -72,52 +91,42 @@ namespace YoutubePlayer
         }
         private void AudioLevel_Scroll(object sender, EventArgs e)
         {
-            player.volume = AudioLevel.Value * 20;
+            player.settings.volume = AudioLevel.Value * 20;
         }
         private void TimeBar_MouseUp(object sender, MouseEventArgs e)
         {
-            player.input.time = TimeBar.Value*1000;
+            player.Ctlcontrols.currentPosition = TimeBar.Value;
+            UpdateTimeBar.Enabled = true;
             Play();
             TimeWasChanged(TimeBar.Value);
-            UpdateTimeBar.Enabled = true;
         }
+
         private void TimeBar_MouseDown(object sender, MouseEventArgs e)
         {
-            UpdateTimeBar.Enabled = false;
-            double width = TimeBar.Width-16;
+            double width = TimeBar.Width - 16;
             double max = TimeBar.Maximum;
-            double mx = e.X-8;
+            double mx = e.X - 8;
             TimeBar.Value = (int)Math.Round(mx / (width / max));
+            UpdateTimeBar.Enabled = false;
         }
 
         private void TimeBar_Scroll(object sender, EventArgs e)
         {
             Time.Text = SecToStr(TimeBar.Value);
         }
+
         private void UpdateTimeBar_Tick(object sender, EventArgs e)
         {
-            if (IsVideo)
-            {
-                Time.Text = SecToStr((int)(player.input.time / 1000));
-                TimeBar.Value = (int)(player.input.time / 1000);
-            }
-            else
-            {
-                if (player.input.length>0)
-                {
-                    FullTime.Text = SecToStr((int)player.input.length / 1000);
-                    TimeBar.Maximum = (int)(player.input.length / 1000);
-                    IsVideo = true;
-                    Play();
-                }
-            }
+            Time.Text = SecToStr((int)(player.Ctlcontrols.currentPosition));
+            TimeBar.Value = (int)(player.Ctlcontrols.currentPosition);
         }
+
         //functions
 
-        public void SearchThis(Syd.YouTubeSearch view,string sch)
+        public void SearchThis(YouTubeSearch view, string sch)
         {
 
-            if (Syd.YouTubeSearch.IsURL(sch))
+            if (YouTubeSearch.IsURL(sch))
             {
                 PlayURL(sch);
             }
@@ -130,13 +139,10 @@ namespace YoutubePlayer
         public void PlayURL(string url)
         {
             URLWasChanged(url);
-            
-            player.playlist.add(url);
-            player.playlist.playItem(player.playlist.itemCount-1);
-            Play();
+            player.URL = YouTubeSearch.GetURI(url);
         }
 
-        
+
 
         void TimeWasChanged(int TimeNow)
         {
@@ -144,23 +150,26 @@ namespace YoutubePlayer
         }
         void ChangeTimeTo(int time)//in seconds
         {
-            player.input.time = time;
+            player.Ctlcontrols.currentPosition = time;
             Time.Text = SecToStr(time);
             TimeBar.Value = time;
         }
         void Play()
         {
-            player.playlist.play();
+            player.Ctlcontrols.play();
             IsPlaying = true;
             play.Text = "❙❙";
+            UpdateTimeBar.Enabled = true;
+
 
             //send to server play
         }
         void Stop()
         {
-            player.playlist.pause();
+            player.Ctlcontrols.pause();
             IsPlaying = false;
             play.Text = "▶";
+            UpdateTimeBar.Enabled = false;
 
             //send to server stop
         }
@@ -169,7 +178,7 @@ namespace YoutubePlayer
         {
             IsVideo = false;
             Stop();
-            player.playlist.stop();
+            player.Ctlcontrols.stop();
         }
 
 

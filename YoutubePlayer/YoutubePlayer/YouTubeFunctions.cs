@@ -5,59 +5,80 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoLibrary;
 using YoutubeSearch;
-using YoutubePlayer;
 using System.Net;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
-namespace Syd
+namespace YoutubePlayer
 {
     class YouTubeSearch
     {
         ListView view;
         List<string> URLs;
         Player player;
-        public YouTubeSearch(ListView view,Player player)
+        public YouTubeSearch(ListView view, Player player)
         {
             this.player = player;
             this.view = view;
-            this.view.MouseDoubleClick+= new MouseEventHandler(view_DoubleClick);
+            this.view.MouseDoubleClick += new MouseEventHandler(view_DoubleClick);
             this.URLs = new List<string>();
-        }
-        
-        public static string DownloadYoutube(string link, string dir)
-        {
-            var youTube = YouTube.Default;
-            var video = youTube.GetVideo(link);
-            string path = dir + @"\" + video.FullName;
-            path = Pathes.GetUniqueFilePath(path);//change file name if already exists
-            System.IO.File.WriteAllBytes(path, video.GetBytes());
-            return path;
         }
         public void SearchVideos(string sch)
         {
             this.view.Clear();
             this.URLs.Clear();
+            List<object> input = new List<object>();
+            input.Add(view);
+            input.Add(URLs);
+            input.Add(sch);
+            BackgroundWorker SY = new BackgroundWorker();
+            SY.DoWork += new DoWorkEventHandler(SY_DoWork);
+            SY.RunWorkerCompleted += new RunWorkerCompletedEventHandler(SY_Complete);
+            SY.RunWorkerAsync(input);
+
+
+        }
+        private static void SY_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<object> input = e.Argument as List<object>;
+            ListView view = input[0] as ListView;
+            List<string> URLs = input[1] as List<string>;
+            string sch = input[2] as string;
+            List<string> Label = new List<string>();
             ImageList Thumbnails = new ImageList();
             Thumbnails.ImageSize = new Size(160, 90);
-            Thumbnails.ColorDepth = ColorDepth.Depth16Bit;
+            Thumbnails.ColorDepth = ColorDepth.Depth32Bit;
             VideoSearch items = new VideoSearch();
-            view.LargeImageList = Thumbnails;
-            int cnt = 0;
-            foreach (var item in items.SearchQuery(sch, 1))
+            foreach (var item in items.SearchQuery(sch, 2))
             {
                 //show: item.Title;
                 //url: item.Url;
                 Byte[] image = new WebClient().DownloadData(item.Thumbnail);
-                using(MemoryStream ms=new MemoryStream(image))
+                using (MemoryStream ms = new MemoryStream(image))
                 {
                     Thumbnails.Images.Add(Image.FromStream(ms));
                     byte[] bytes = Encoding.Default.GetBytes(System.Net.WebUtility.HtmlDecode(item.Title));
-                    view.Items.Add(Encoding.UTF8.GetString(bytes), cnt);
+                    Label.Add(Encoding.UTF8.GetString(bytes));
                     URLs.Add(item.Url);
                 }
-                cnt++;
+
+            }
+            input.Add(Thumbnails);
+            input.Add(Label);
+            e.Result = input;
+        }
+        private static void SY_Complete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            List<object> input = e.Result as List<object>;
+            ListView view = input[0] as ListView;
+            ImageList Thumbnails = input[3] as ImageList;
+            List<string> Label = input[4] as List<string>;
+            view.LargeImageList = Thumbnails;
+            for (int i = 0; i < Label.Count; i++)
+            {
+                view.Items.Add(Label[i], i);
             }
         }
         private void view_DoubleClick(object sender, EventArgs e)
