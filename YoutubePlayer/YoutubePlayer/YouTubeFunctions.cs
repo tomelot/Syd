@@ -37,8 +37,6 @@ namespace YoutubePlayer
             SY.DoWork += new DoWorkEventHandler(SY_DoWork);
             SY.RunWorkerCompleted += new RunWorkerCompletedEventHandler(SY_Complete);
             SY.RunWorkerAsync(input);
-
-
         }
         private static void SY_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -99,6 +97,47 @@ namespace YoutubePlayer
             catch
             {
                 return false;
+            }
+        }
+        public static void SerchAndPlay(string url, AxWMPLib.AxWindowsMediaPlayer player, YouTubeSearch view)
+        {
+            List<object> input = new List<object>();
+            input.Add(url);
+            input.Add(player);
+            input.Add(view);
+            BackgroundWorker SAP = new BackgroundWorker();
+            SAP.DoWork += new DoWorkEventHandler(SAP_DoWork);
+            SAP.RunWorkerCompleted += new RunWorkerCompletedEventHandler(SAP_Complete);
+            SAP.RunWorkerAsync(input);
+        }
+        private static void SAP_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<object> input = new List<object>();
+            input = e.Argument as List<object>;
+            string sch = input[0] as string;
+            AxWMPLib.AxWindowsMediaPlayer player = input[1] as AxWMPLib.AxWindowsMediaPlayer;
+            YouTubeSearch view = input[2] as YouTubeSearch;
+            if (YouTubeSearch.IsURL(sch))
+            {
+                YouTubeSearch.PlayURL(sch, player);
+                e.Result = input;
+            }
+            else
+            {
+                input[1] = null;
+                e.Result = input;
+            }
+        }
+        private static void SAP_Complete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            List<object> input = new List<object>();
+            input = e.Result as List<object>;
+            string sch = input[0] as string;
+            AxWMPLib.AxWindowsMediaPlayer player = input[1] as AxWMPLib.AxWindowsMediaPlayer;
+            YouTubeSearch view = input[2] as YouTubeSearch;
+            if (player == null)
+            {
+                view.SearchVideos(sch);
             }
         }
         public static void PlayURL(string url,AxWMPLib.AxWindowsMediaPlayer player)

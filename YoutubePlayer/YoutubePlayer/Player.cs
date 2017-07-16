@@ -126,14 +126,7 @@ namespace YoutubePlayer
         public void SearchThis(YouTubeSearch view, string sch)
         {
 
-            if (YouTubeSearch.IsURL(sch))
-            {
-                YouTubeSearch.PlayURL(sch,this.player);
-            }
-            else
-            {
-                view.SearchVideos(sch);
-            }
+            YouTubeSearch.SerchAndPlay(sch,this.player,view);
         }
 
 
